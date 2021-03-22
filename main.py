@@ -10,12 +10,13 @@ conf = (SparkConf()
 sc = SparkContext(conf=conf)
 
 print("Launch App..")
+
+
 if __name__ == "__main__":
     print("Initiating main..")
 
-
     print("Counting words in file")
-    lines = sc.textFile(r'C:\Users\bryanleekw\PycharmProjects\nyc_taxi\data\TripData\green_tripdata_2013-08.csv')
+    lines = sc.textFile(r'C:\Users\bryanleekw\PycharmProjects\WordCount\file.txt')
 
     # for lambdas check out https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions
     lines_nonempty = lines.filter(lambda x: len(x) > 0)
@@ -27,3 +28,4 @@ if __name__ == "__main__":
         print("%s: %i" % (word, count))
 
     sc.stop()
+
